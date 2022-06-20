@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+       
+<div class="d-flex justify-content-between">
+    <h1>Edit {{show.title}}</h1>
+    <a href="/shows">go back</a>
+    
+</div>
+    <form method="POST" action="/show/{{show.id}}/edit">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">title</label>
+            <input type="text" value="{{show.title}}" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">network</label>
+            <input type="text" value="{{show.network}}"  name="network" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">relese date</label>
+            <input type="date" value="{{show.releseDate}}" name="releseDate" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="mb-3 form-check">
+            <label class="form-check-label" for="exampleCheck1">Description</label>
+            <textarea name="desc"  value="{{show.desc}}" class="form-control"  cols="30" rows="10"></textarea>
+        </div>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">edit</button>
+    </form>
+    <a href="/show/{{show.id}}">Show</a>
+    
+    
+{% endblock %}
+
+

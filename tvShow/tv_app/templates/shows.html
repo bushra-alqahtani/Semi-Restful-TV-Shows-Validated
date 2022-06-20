@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+{% block content %}
+       
+
+    <h1>All Shows</h1>
+    
+<br><br><br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">network</th>
+        <th scope="col">relese date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for list in shows %}
+      <tr>
+        <th scope="row">{{list.id}}</th>
+        <td>{{list.title}}</td>
+        <td>{{list.network}}</td>
+        <td><a href="show/{{list.id}}">show</a> | <a href="show/{{list.id}}/edit">edit</a> | <a href="show/{{list.id}}/delete">delete</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  <br><br>
+  <h6><a href="/">add new show</a></h6>
+
+
+
+{% endblock %}
